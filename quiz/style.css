@@ -29,5 +29,186 @@ body {
     width: 100%;
     padding: 5%;
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    border-radius: 1rem
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.buttons-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Vertical alignment for the dots themselves */
+    justify-content: center;
+    gap: 15px;
+}
+
+.main-btn {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: azure;
+    border: none;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.main-btn:hover {
+    background-color: aquamarine;
+    transform: scale(1.05);
+}
+
+.scale-interface {
+    display: flex;
+    flex-direction: row; /* Ensure they are horizontal */
+    align-items: center; /* Vertical alignment - THE MAGIC LINE */
+    justify-content: center; /* Center the whole group horizontally */
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.scale-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between dots */
+}
+
+
+.scale-btn {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevents the circles from turning into ovals */
+    line-height: 0; /* Helps center the number inside if it appears */
+    border-radius: 50%;
+    background-color: #eee;
+}
+
+.scale-btn:hover, .scale-btn.selected {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* Specific Fill Colors */
+.scale-btn[data-value="1"].selected, .scale-btn[data-value="1"]:hover,
+.scale-btn[data-value="2"].selected, .scale-btn[data-value="2"]:hover { background-color: #da5c75; }
+
+.scale-btn[data-value="3"].selected, .scale-btn[data-value="3"]:hover { background-color: #999; }
+
+.scale-btn[data-value="4"].selected, .scale-btn[data-value="4"]:hover,
+.scale-btn[data-value="5"].selected, .scale-btn[data-value="5"]:hover { background-color: #2792d0; }
+
+/* Side Number Labels */
+.scale-num {
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+.scale-num.disagree { color: #da5c75; }
+.scale-num.agree { color: #2792d0; }
+
+/* SIZING: Big ends, small middle */
+.scale-btn[data-value="1"], 
+.scale-btn[data-value="5"] { width: 50px; height: 50px; border: 3px solid; }
+
+.scale-btn[data-value="2"], 
+.scale-btn[data-value="4"] { width: 38px; height: 38px; border: 3px solid; }
+
+.scale-btn[data-value="3"] { width: 28px; height: 28px; border: 3px solid; }
+
+/* COLORS (16Personalities Palette) */
+/* Purple Side (1 & 2) */
+.scale-btn[data-value="1"], 
+.scale-btn[data-value="2"] { border-color: #da5c75; } 
+
+/* Neutral Middle (3) */
+.scale-btn[data-value="3"] { border-color: #999; } 
+
+/* Green Side (4 & 5) */
+.scale-btn[data-value="4"], 
+.scale-btn[data-value="5"] { border-color: #2792d0; }
+
+.hidden {
+    display: none !important;
+}
+
+.question-header {
+    background-color: #f0f4f8;
+    padding: 12px 20px;
+    text-align: left;
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+#question-number {
+    font-weight: 700;
+    color: #334155;
+    font-size: 1.1rem;
+}
+
+#question-text {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+}
+
+/* Vertical List Container */
+.choice-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0; /* Options touch each other like a list */
+}
+
+/* Individual Choice Rows */
+.choice-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px 20px;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #f0f0f0; /* Light divider line */
+    font-family: inherit;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Hover Effect */
+.choice-btn:hover {
+    background-color: #f8fafc;
+}
+
+/* The Radio Circle */
+.choice-btn::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+/* Selected State */
+.choice-btn.selected {
+    background-color: #eff6ff; /* Light blue highlight */
+}
+
+.choice-btn.selected::before {
+    border-color: #3b82f6;
+    background: radial-gradient(#3b82f6 45%, transparent 50%);
 }
