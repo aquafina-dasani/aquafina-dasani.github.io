@@ -71,7 +71,7 @@ const myQuestions = [
     },
     {
         type: "choice",
-        question: "Can I be your boyfriend?? 🫣🫣🫣",
+        question: "May I be your boyfriend?? 🫣🫣🫣",
         options: ["Yes", "Yes"],
         correct: ["Yes", "Yes"]
     }
